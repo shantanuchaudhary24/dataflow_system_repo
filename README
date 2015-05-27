@@ -1,0 +1,60 @@
+################################################################################################
+
+					     README
+
+################################################################################################
+
+This repository contains code for a dataflow management system developed as a room booking system
+using C++ and OpenGL. THe software has the following features:
+-> Graphical User Interface Rendered using OpenGL
+-> Implements an indepedently developed workflow management engine
+-> Multiple User Interaction with server implemented via network socket programming
+-> Multi-threaded implementation for exploiting thread level parallelism on multicore processors
+-> Distinct indepedent threads for handling GUI, Networking, Database
+-> Server runs as a daemon with its dedicated database
+-> Implements big fat file lock to prevent multiple threads to access database concurrently
+-> Input interface through keyboard
+
+################################################################################################
+
+Collaborators:
+Shantanu Chaudhary (shantanuchaudhary24@gmail.com)
+Chainn Singh (chain.singh38@gmail.com)
+
+################################################################################################
+
+Folder hierarchy:
+Makefile	: For building, cleaning project
+README		: Information about project code
+latex_document	: Tex file for formal documentation
+src		: source code files
+inc		: library headers
+
+################################################################################################
+
+Dependencies:
+-> C++ compiler
+-> OpenGL 3.0 or higher
+
+################################################################################################
+
+Setting up project code:
+-> Clone the repository
+
+################################################################################################
+
+Each module has been placed in its specific directory. Refer each folder for specific makefile:
+
+For running the server code type the following command:
+make admin
+
+For running the client code type the following command:
+make client
+
+For only compiling the client code type the following command:
+make compile
+
+For clearing the executable type the following command:
+make clean
+
+################################################################################################

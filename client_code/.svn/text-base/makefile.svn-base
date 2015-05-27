@@ -1,0 +1,29 @@
+ifndef ADDRESS
+	ADDRESS = localhost
+endif	
+
+ifndef PORT
+	PORT = 5555
+endif	
+
+connection="\#define PORT $(PORT)\n\
+	   \#define ADDRESS \"$(ADDRESS)\""
+
+database:
+	@echo $(connection) > inc/connection_header.h
+	@clear
+	@g++ -o database src/ui/*.cpp src/networking/*.cpp src/main/*cpp -lglut -lGLU -lglui -lpthread -Wall
+	@./database
+
+compile:
+	@echo $(connection) > inc/connection_header.h
+	@clear
+	@g++ -o database src/ui/*.cpp src/networking/*.cpp src/main/*cpp -lglut -lGLU -lglui -lpthread
+
+.PHONY: clean
+clean:
+	@rm database
+	@clear
+	@echo $(connection) > inc/connection_header.h
+	@g++ -o database src/ui/*.cpp src/networking/*.cpp src/main/*cpp -lglut -lGLU -lglui -lpthread -Wall
+	@./database

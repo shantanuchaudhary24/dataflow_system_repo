@@ -1,0 +1,53 @@
+\nonstopmode
+\documentclass{article}
+\title{CSP 301\\ Assignment 4 Design Documentation}
+\author{\bf Chain Singh(2010CS10213)\\\bf Shantanu Chaudhary(2010CS50295)}
+\date{26th November, 2011}
+\setlength{\parindent}{0pt}
+\pdfpagewidth 9.0in
+\pdfpageheight 11in
+\begin{document}
+\maketitle
+\section*{Problem Specification}
+\begin{enumerate}
+\item The booking system has to be a daemon accessible to clients over a network.
+\item The clients should have an intuitive user interface that lets him/her choose
+the operation to perform (book/cancel/view request status) and to enter
+the related data. This could be done in OpenGL.
+\item The server should have an intuitive user interface for the administrator
+- to view accepted requests and approve requests, to allot rooms to high
+priority requests, and to cancel a booking.
+\item Multiple clients may place requests in parallel. Use multithreaded pro-
+gramming to handle them.
+\item The database needs to be locked and unlocked during write/read opera-
+tions to maintain integrity of data.
+\item Audit logs need to be maintained.
+\end{enumerate}
+\section*{File System :}
+There will be two types of records maintained :
+\begin{enumerate}
+\item One corresponding to each room.
+	\begin{enumerate}
+	\item Accessories available.
+	\item Users currently referring to that room in any possible way.
+	\end{enumerate}
+\item One corresponding to each user.
+	\begin{enumerate}
+	\item User id  
+	\item Request type
+	\item Request status
+	\end{enumerate}
+\end{enumerate}
+
+\section*{Division of Code:}
+\begin{enumerate}
+\item Adminstrator Code: 
+\paragraph The admin is responisible for showing the administrator window.The code also contains all the gui codes. The gui has been designed using glui kit.The code allows admin to add rooms to database, set their configuration i.e. their capacity,number of projectors and other facilities.This window is also responsible for showing the entries in the database file to the admin so that he can approve the requests.
+\item Client Code:
+\paragraph The client code is the one which is responsible for displaying the window which is used to connect to server and book a room.The client code also enables the user to check his previous requests through the gui.
+\item Server Code:
+\paragraph This piece of code is used to initiate the server for the management system.The server is concurrent in nature and can handle several connections in a queue.The serves the room management data and also processes the requested data.
+
+\end{enumerate}
+\end{document}
+
